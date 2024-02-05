@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://db.onlinewebfonts.com/c/a44207bfe4040f536c824dbbf82f5ed1?family=e-Ukraine+Regular" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+  <title>Internet Solutions</title>
+  <style>
+    :root {
+      --color-gray: #f5f6f7;
+      --color-green: #9de04c;
+      --color-black-bg: #222222;
+      --color-black-text: #0d0b07;
+      --color-white: #cce0f0;
+      --color-blue: #4c9de0;
+      --color-yellow: #f5ed32;
+
+      font-size: 1.75vmin;
+    }
+
+    * {
+      transition: all 0.5s;
+    }
+
+    body {
+      font-family: "e-Ukraine Regular", sans-serif;
+    }
+
+    body > * {
+      max-width: 100%;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      height: fit-content;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    footer p {
+      text-align: center;
+    }
+
+    hr {
+      width: 100%;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      width: 15rem;
+    }
+
+    .logo {
+      width: 10rem;
+      height: 5rem;
+    }
+
+    .heading {
+      padding: 0;
+      margin: 0;
+      text-transform: uppercase;
+      color: var(--color-green);
+      font-weight: 900;
+    }
+
+    .block:not(.block1) .heading {
+      background: var(--color-black-bg);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .block {
+      position: relative;
+      padding: 0.5rem;
+    }
+
+    .block1 {
+      background-color: var(--color-gray);
+    }
+
+    .block1 p {
+      margin: 10% 0;
+      padding: 1rem;
+      font-size: larger;
+    }
+
+    .button {
+      background: var(--color-blue);
+      color: var(--color-gray);
+      border: 1px solid transparent;
+      border-radius: 1rem;
+      padding: 0.5rem 1.5rem;
+      position: absolute;
+      bottom: 1rem;
+      cursor: url('./star.cur') 16 16, url('./star.ico') 16 16, url('./star.png') 16 16, crosshair;
+    }
+
+    .button:hover {
+      background: var(--color-gray);
+      color: var(--color-blue);
+      box-shadow: 0 0 0.5rem var(--color-blue);
+    }
+
+    .heading,
+    .button::first-letter,
+    .size-label,
+    .variant-label {
+      text-transform: uppercase;
+    }
+
+    .width50 {
+      width: 50%;
+    }
+
+    .map1 {
+      margin: 1vmin 0;
+      width: 50%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      float: right;
+      background-image: url('https://m.media-amazon.com/images/S/aplus-media-library-service-media/24854baf-08c3-4672-a784-6eda4c67b77c.__CR0,55,727,545_PT0_SX600_V1___.png');
+      background-image: url('./map1.jpeg');
+      background-position: center;
+      background-size: contain;
+    }
+
+    .block2 {
+      border: 1px solid var(--color-green);
+      border-top: none;
+      border-bottom: none;
+      height: 16rem;
+    }
+
+    .sizes {
+      display: grid;
+      grid-template-columns: repeat(4, 25%);
+      gap: 0.5rem;
+    }
+
+    .size {
+      background: var(--color-gray);
+      height: 7rem;
+      margin: 5rem 0.5rem;
+      cursor: pointer;
+    }
+
+    .size-label {
+      font-variant: small-caps;
+      font-size: 5rem;
+      letter-spacing: 0.05ch;
+      margin: -3rem 0 0;
+    }
+
+    .size:not(:hover) .size-label {
+      color: var(--color-green);
+      text-shadow: 0.5rem 0 currentColor;
+    }
+
+    .size:not(:hover) .size-units {
+      color: var(--color-black-text);
+    }
+
+    .size:hover {
+      transform: scale(1.1) translateX(-5px); /* збільшення об’єкта на 10% зі зміщенням вверх на 5px. */
+    }
+
+    .size:hover .size-label {
+      color: var(--color-black-text);
+      text-shadow: 0.5rem 0 currentColor;
+    }
+
+    .size:hover .size-units {
+      color: var(--color-green);
+    }
+
+    .size-units {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.5rem;
+    }
+
+    .block3 {
+      border-left: 2px solid var(--color-black-bg);
+      padding-top: 0;
+    }
+
+    .content {
+      position: relative;
+      height: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .content::after {
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      content: '';
+      background-image: url('https://m.media-amazon.com/images/I/81r6RYdS51L.jpg');
+      background-image: url('block3_bg.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(5) blur(5px);
+    }
+
+    .variant {
+      display: grid;
+      grid-template-rows: 5rem 1fr 4rem;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .variant-image {
+      width: 80%;
+      aspect-ratio: 1 / 1;
+      background-position: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .variant-image::after {
+      position: absolute;
+      content: attr(data-number);
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 25%);
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: 900;
+      border-radius: 50%;
+      width: 2rem;
+      aspect-ratio: 1 / 1;
+      text-align: center;
+      background: var(--color-yellow);
+      color: var(--color-black-text);
+      transition: all 0.5s;
+    }
+
+    .variant-image:hover {
+      transform: scale(1.05);
+    }
+
+    .variant-image:hover:after {
+      background: var(--color-black-text);
+      color: var(--color-yellow);
+    }
+
+    .variant1 .variant-image {
+      background-image: url('https://plywoodstory.com.ua/content/images/28/360x480l50nn0/karta-svitu-s-105x180-sm-z-masivu-dereva-1-34398930508001.jpg');
+      background-image: url('./variant1.jpg');
+    }
+
+    .variant2 .variant-image {
+      background-image: url('https://5.imimg.com/data5/ANDROID/Default/2020/10/FF/IU/BU/789327/1602835041869-jpg-500x500.jpg');
+      background-image: url('./variant2.webp');
+    }
+
+    .variant3 .variant-image {
+      background-image: url('https://i.etsystatic.com/13474086/r/il/ba7ebb/3910576070/il_570xN.3910576070_jtv7.jpg');
+      background-image: url('./variant3.avif');
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content > div {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+
+    .info ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left">
+      <img src="./company_logo_2.png" alt="Internet Solutions logo" class="logo">
+
+      <a href="https://docs.google.com/document/d/14F3YLKK8bH3wffvJygVOWSEpOZnHxLSQcgo5dxHA0vg/edit">Тестове завдання</a>
+      <a href="https://docs.google.com/document/d/15K8ALVz-BXNs5j3TIMpWAy_TIBgJ2glQtXf0paKa1yg/edit?usp=sharing">Документ рішення</a>
+    </div>
+
+    <details>
+      <summary>Загальні вимоги</summary>
+      Верстка має бути адаптивною. <br />
+      Блоки мають бути реалізовані так як в прикладі - розташування, фон, подложка і т.д.  <br />
+      Текст може бути будь яким. Всі зображення можуть бути довільними (шлях по url) <br />
+    </details>
+  </header>
+
+  <hr>
+
+  <main>
+    <section class="block block1">
+      <div class="map1 width50"></div>
+      <h2 class="heading width50">
+        дерев'яна карта світу на стіну з підсвіткою
+      </h2>
+      <p>
+        Деталізація цієї карти справді вражає! На ній Ви зможете побачити гравірування всіх країн та столиць світу!
+        Також, в комплекті йде 40 маркерів (ручної роботи), щоб Ви змогли відмітити міста, в яких Ви були!
+        Ви можете обрати будь-який колір вашого товару, для цього повідомте менеджеру, який колір, ви бажаєте. Так само, приймаємо замовлення на індивідуальні розміри, для цього, повідомте менеджеру, який розмір Вам потрібен.
+      </p>
+      <button class="button">перейти до каталогу</button>
+    </section>
+
+    <details>
+      <summary>Блок 1</summary>
+      кнопку “перейти до каталогу” зробити клікабельну з інверсією кольорів фону та тексту при наведенні, також курсор має змінюватись на будь-який альтернативний. 
+    </details>
+
+    <hr />
+
+    <section class="block block2">
+      <h2 class="heading">
+        карта світу з дерева: доступні розміри
+      </h2>
+      <div class="sizes">
+        <div class="size size1">
+          <h3 class="size-label">m</h3>
+          <p class="size-units">100x60 см</p>
+        </div>
+        <div class="size size2">
+          <h3 class="size-label">l</h3>
+          <p class="size-units">150x90 см</p>
+        </div>
+        <div class="size size3">
+          <h3 class="size-label">xl</h3>
+          <p class="size-units">200x120 см</p>
+        </div>
+        <div class="size size4">
+          <h3 class="size-label">xxl</h3>
+          <p class="size-units">300x175 см</p>
+        </div>
+      </div>
+    </section>
+
+    <details>
+      <summary>Блок 2</summary>
+      блоки М, L, XL, XXL реалізувати анімацію при наведенні (збільшення об’єкта на 10% зі зміщенням вверх на 5px., зворотня інверсія кольорів, як показано в прикладі)
+    </details>
+
+    <hr>
+
+    <section class="block block3">
+      <h2 class="heading">
+        дерев'яна мапа світу: варіанти гравіювання
+      </h2>
+
+      <div class="content">
+        <div class="variant variant1">
+          <h3 class="variant-label">pure</h3>
+          <div class="variant-image"  data-number="1"></div>
+          <p class="variant-text">Pure map without a lot of marks</p>
+        </div>
+        <div class="variant variant2">
+          <h3 class="variant-label">primary</h3>
+          <div class="variant-image"  data-number="2"></div>
+          <p class="variant-text">Primary points are highlighted</p>
+        </div>
+        <div class="variant variant3">
+          <h3 class="variant-label">top 1</h3>
+          <div class="variant-image"  data-number="3"></div>
+          <p class="variant-text">Top 1 city for each country</p>
+        </div>
+      </div>
+    </section>
+
+    <details>
+      <summary>Блок 3</summary>
+      зображення карт (або іншої картинки, яку ви використаєте)  при наведенні має збільшуватись на 5%, також має змінюватись кольори кнопок 1,2,3 та їх фон. 
+    </details>
+  </main>
+
+  <hr>
+
+  <footer>
+    <section class="footer-content">
+      <div class="info">
+        <h3>
+          Sources had helped me:
+        </h3>
+        <ul>
+          <li><a href="https://www.google.com" target="_blank" rel="noopener noreferrer">google.com</a></li>
+          <li><a href="https://www.fonts.google.com" target="_blank" rel="noopener noreferrer">fonts.google.com</a></li>
+          <li><a href="https://www.w3.org" target="_blank" rel="noopener noreferrer">w3.org</a></li>
+          <li><a href="https://www.developer.mozilla.org" target="_blank" rel="noopener noreferrer">developer.mozilla.org</a></li>
+          <li><a href="https://www.stackoverflow.com" target="_blank" rel="noopener noreferrer">stackoverflow.com</a></li>
+          <li><a href="https://www.onlinewebfonts.com" target="_blank" rel="noopener noreferrer">onlinewebfonts.com</a></li>
+          <li><a href="https://www.css.in.ua" target="_blank" rel="noopener noreferrer">css.in.ua</a></li>
+        </ul>
+      </div>
+      <div class="contacts">
+        <h3>
+          Contacts:
+        </h3>
+        <a href="tel:+380505444199">+380 505 444 199</a>
+        <a href="mailto:8ogdanow@gmail.com">8ogdanow@gmail.com</a>
+        <a href="https://t.me/bogdanovvad1m">@bogdanovvad1m</a>
+      </div>
+    </section>
+    <p>
+      &copy; 2024 Bogdanov Vadim specially for <b>Internet Solutions</b>.
+    </p>
+  </footer>
+</body>
+</html>
